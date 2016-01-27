@@ -1,6 +1,7 @@
 package ca.ualberta.cs.lonelytwitter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TweetList {
     private ArrayList<Tweet> tweets= new ArrayList<Tweet>();
@@ -21,4 +22,15 @@ public class TweetList {
         tweets.remove(tweet);
     }
 
+    public void removeTweet(Tweet tweet) {
+
+    }
+
+    public List<Tweet> getTweets() {
+        return null;
+    }
+
+    public int getCount() {
+        return 0;
+    }
 }
