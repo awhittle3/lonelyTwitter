@@ -3,7 +3,7 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by awhittle on 1/12/16.
+ * Tweet of high importance
  */
 public class ImportantTweet extends Tweet implements Tweetable{
     public ImportantTweet(Date date, String message) {

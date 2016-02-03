@@ -24,6 +24,10 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * Primary activity of Lonely Twitter
+ * Displays tweets
+ */
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";
@@ -84,6 +88,9 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+	/**
+	 * Loads tweet data from file
+	 */
 	private void loadFromFile() {
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
@@ -104,6 +111,9 @@ public class LonelyTwitterActivity extends Activity {
 		}
 	}
 
+	/**
+	 * Saves tweet data to file
+	 */
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,

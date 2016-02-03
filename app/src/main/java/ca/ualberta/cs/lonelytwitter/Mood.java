@@ -3,7 +3,7 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by awhittle on 1/12/16.
+ * Object for representing a mood
  */
 public abstract class Mood {
     protected Date date;
