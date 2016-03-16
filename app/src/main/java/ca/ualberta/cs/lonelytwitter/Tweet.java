@@ -25,7 +25,8 @@ public abstract class Tweet {
 
     protected Date date;
     protected String message;
-
+    protected transient Bitmap thumbnail;
+    protected String thumbnailBase64;
 
     public Tweet(Date date, String message) {
         this.date = date;
@@ -35,6 +36,12 @@ public abstract class Tweet {
     public Tweet(String message) {
         this.message = message;
         this.date = new Date();
+    }
+
+    public Tweet(Date date, String message, Bitmap thumbnail){
+        this.date = date;
+        this.message = message;
+        this.thumbnail = thumbnail;
     }
 
     public abstract Boolean isImportant();
@@ -56,6 +63,24 @@ public abstract class Tweet {
             throw new TweetTooLongException();
         }
         this.message = message;
+    }
+
+    public Bitmap getThumbnail() {
+        if(thumbnail == null && thumbnailBase64 != null){
+            byte[] decodeString = Base64.decode(thumbnailBase64, Base64.DEFAULT);
+            thumbnail = BitmapFactory.decodeByteArray(decodeString,0,decodeString.length);
+        }
+        return thumbnail;
+    }
+
+    public void addThumbnail(Bitmap thumbnail) {
+        if(thumbnail != null) {
+            this.thumbnail = thumbnail;
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            thumbnail.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte b[] = byteArrayOutputStream.toByteArray();
+            this.thumbnailBase64 = Base64.encodeToString(b, Base64.DEFAULT);
+        }
     }
 
     @Override

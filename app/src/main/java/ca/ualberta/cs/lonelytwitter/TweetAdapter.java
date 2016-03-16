@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
         super(context, 0, users);
     }
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
@@ -27,8 +29,10 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
         String message = tweet.getMessage();
         String dateString = tweet.getDate().toString();
 
-        //TODO: initialize this:
-        Bitmap thumbnail = null;
+        Bitmap thumbnail = tweet.getThumbnail();
+
+
+
 
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
