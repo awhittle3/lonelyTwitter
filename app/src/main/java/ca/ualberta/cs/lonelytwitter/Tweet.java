@@ -11,7 +11,7 @@ import java.util.Date;
 
 import io.searchbox.annotations.JestId;
 
-public abstract class Tweet {
+public abstract class Tweet implements Comparable{
     @JestId
     protected String id;
 
@@ -95,4 +95,5 @@ public abstract class Tweet {
         }
         return date.toString() + " | " + message;
     }
+
 }

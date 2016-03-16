@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.ExecutionException;
 
 public class LonelyTwitterActivity extends Activity {
@@ -67,6 +68,8 @@ public class LonelyTwitterActivity extends Activity {
 
                 latestTweet.addThumbnail(picture);
 
+                Collections.sort(tweets);
+
                 adapter.notifyDataSetChanged();
 
                 // Add the tweet to Elasticsearch
@@ -93,6 +96,7 @@ public class LonelyTwitterActivity extends Activity {
         try {
             tweets = new ArrayList<Tweet>();
             tweets.addAll(getTweetsTask.get());
+            Collections.sort(tweets);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
