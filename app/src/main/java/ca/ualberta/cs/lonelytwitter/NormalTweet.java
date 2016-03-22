@@ -20,6 +20,7 @@ public class NormalTweet extends Tweet implements Tweetable {
     }
 
     //@Override
+    @Override
     public Boolean isImportant() {
         return Boolean.FALSE;
     }

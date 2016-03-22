@@ -66,7 +66,7 @@ public class LonelyTwitterActivity extends Activity {
                 String text = bodyText.getText().toString();
                 NormalTweet latestTweet = new NormalTweet(text);
 
-                myTweets.add(latestTweet);
+                myTweets.addNewTweet(latestTweet);
 
                 latestTweet.addThumbnail(thumbnail);
                 adapter.insert(latestTweet, 0);
@@ -77,7 +77,7 @@ public class LonelyTwitterActivity extends Activity {
                 addTweetTask.execute(latestTweet);
 
 
-	// http://stackoverflow.com/questions/11835251/remove-image-resource-of-imagebutton
+                // http://stackoverflow.com/questions/11835251/remove-image-resource-of-imagebutton
 
                 bodyText.setText("");
                 pictureButton.setImageResource(android.R.color.transparent);
@@ -105,14 +105,8 @@ public class LonelyTwitterActivity extends Activity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        numImportant = myTweets.countImportant();
 
-        //Count important tweets
-        numImportant = 0;
-        for ( Tweet aTweet: myTweets.getTweets() ){
-            if (aTweet.isImportant() == Boolean.TRUE){
-                numImportant++;
-            }
-        }
 
 //        adapter = new ArrayAdapter<Tweet>(this, R.layout.list_item, tweets);
         // Binds tweet list with view, so when our array updates, the view updates with it
@@ -120,6 +114,8 @@ public class LonelyTwitterActivity extends Activity {
         adapter = new TweetAdapter(this, myTweets.getTweets());
         oldTweetsList.setAdapter(adapter);
     }
+
+
 
     // http://developer.android.com/training/camera/photobasics.html
     @Override

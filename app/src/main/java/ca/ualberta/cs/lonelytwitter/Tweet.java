@@ -65,7 +65,7 @@ public abstract class Tweet {
     }
 
     //@Override
-    public abstract Boolean isImportant();
+    //public abstract Boolean isImportant();
 
     @Override
     public String toString() {
@@ -99,4 +99,7 @@ public abstract class Tweet {
         }
         this.message = message;
     }
+
+    //@Override
+    abstract Boolean isImportant();
 }
