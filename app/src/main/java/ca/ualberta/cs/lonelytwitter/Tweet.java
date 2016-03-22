@@ -4,8 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 
-import com.google.gson.Gson;
-
 import java.io.ByteArrayOutputStream;
 import java.util.Date;
 

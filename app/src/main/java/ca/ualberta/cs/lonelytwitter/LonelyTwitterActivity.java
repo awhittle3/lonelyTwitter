@@ -24,8 +24,6 @@ public class LonelyTwitterActivity extends Activity {
     private ArrayList<Tweet> tweets;
     private ArrayAdapter<Tweet> adapter;
 
-    private Button saveButton;
-
     public ArrayAdapter<Tweet> getAdapter() {
         return adapter;
     }
@@ -34,9 +32,9 @@ public class LonelyTwitterActivity extends Activity {
     private ImageButton pictureButton;
     private Bitmap thumbnail;
 
-    int numImportant;
+    private int numImportant;
 
-    static final int REQUEST_CAPTURING_IMAGE = 1234;
+    private static final int REQUEST_CAPTURING_IMAGE = 1234;
     /**
      * Called when the activity is first created.
      */
@@ -59,7 +57,7 @@ public class LonelyTwitterActivity extends Activity {
             }
         });
 
-        saveButton = (Button) findViewById(R.id.saveButton);
+        Button saveButton = (Button) findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
